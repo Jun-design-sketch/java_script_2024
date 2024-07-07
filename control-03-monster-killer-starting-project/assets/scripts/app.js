@@ -11,12 +11,29 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-// set Maximum life
-const enteredValue = prompt('Maximum life for you and the monster.', '100');
-let chosenMaxLife = parseInt(enteredValue);
-if(isNaN(chosenMaxLife) || chosenMaxLife <= 0){
-  chosenMaxLife = 100;
+function getMaxLifeValues() {
+  // set Maximum life
+  const enteredValue = prompt('Maximum life for you and the monster.', '100');
+  let parsedValue = parseInt(enteredValue);
+  if(isNaN(parsedValue) || parsedValue <= 0){
+    throw {message: 'Invalid user input, not a number!'};
+  }
+  return parsedValue;
 }
+
+let chosenMaxLife;
+try {
+  chosenMaxLife = getMaxLifeValues();
+} catch(error) {
+  console.log(error);
+  // if there is rest of handling, recreate error
+  // throw error;
+  chosenMaxLife = 100;
+} finally {
+  // some cleanup
+  console.log('finally: as we know same as java or other lang');
+}
+
 // initial life
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
@@ -135,6 +152,19 @@ function printLogHandler() {
   //   console.log('WowowowoW');
   //   j = j+3;
   // }
+
+  let m = 0;
+  outerWhile: do{
+    console.log('Outer', m);
+    innerFor: for(let n =0; n < 5; n++){
+      if(n === 3){
+        break outerWhile;
+        // continue outerWhile;
+      }
+      console.log('Inner', n);
+    }
+    m++;
+  }while(j<3);
 
   // for(let i=0; i<battleLog.length; i++){
   //   console.log(battleLog[i]);
