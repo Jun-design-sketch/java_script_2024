@@ -114,3 +114,53 @@ const add = (a, b) => a + b;
 const add2 = function(a, b) {
   return a + b;
 }
+
+// spread example
+const spreadArray = [1,2,3];
+const mergedArray = [...spreadArray,4,5,6];
+console.log(mergedArray);
+
+const sumUp = (numbers) => {
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  }
+  return sum;
+};
+console.log(sumUp([1, 5, 10, -3, 6, 10]));
+console.log(sumUp([1, 5, 10, -3, 6, 10, 25, 88]));
+
+// Rest Operator
+const sumUp2 = (a, b, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  };
+
+  let sum = 0;
+  for (const num of numbers) {
+    sum += validateNumber(num);
+  }
+  return sum;
+};
+console.log(sumUp2(1, 5, 'aaaaa', -3, 6, 10));
+console.log(sumUp2(1, 5, 10, -3, 6, 10, 25, 88));
+
+const subtractUp = function() {
+  let sum = 0;
+  for (const num of arguments) { // Before ES6 used: not recommended!
+    sum -= num;
+  }
+  return sum;
+}
+
+console.log(subtractUp(1,2,3,4,5));
+// because of Rest operator's feature,
+// const sumUp2 = (...numbers, a)  X
+// const sumUp2 = (a, ...numbers)  O
+
+// function in function: function is object so avaiable
+const functionOne = () => {
+  const functionTwo = () => {
+
+  };
+};
