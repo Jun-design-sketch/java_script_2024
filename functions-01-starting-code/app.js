@@ -120,15 +120,22 @@ const spreadArray = [1,2,3];
 const mergedArray = [...spreadArray,4,5,6];
 console.log(mergedArray);
 
-const sumUp = (numbers) => {
+const sumUp = (resultHandler, ...numbers) => {
   let sum = 0;
   for (const num of numbers) {
     sum += num;
   }
-  return sum;
+
+  resultHandler(sum);
 };
-console.log(sumUp([1, 5, 10, -3, 6, 10]));
-console.log(sumUp([1, 5, 10, -3, 6, 10, 25, 88]));
+
+const showResult = (result) => {
+  alert('The result after adding all numbers is: ' + result);
+}
+
+
+sumUp(showResult, 1, 5, 10, -3, 6, 10);
+sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
 
 // Rest Operator
 const sumUp2 = (a, b, ...numbers) => {
@@ -145,15 +152,15 @@ const sumUp2 = (a, b, ...numbers) => {
 console.log(sumUp2(1, 5, 'aaaaa', -3, 6, 10));
 console.log(sumUp2(1, 5, 10, -3, 6, 10, 25, 88));
 
-const subtractUp = function() {
+const subtractUp = function(resultHandler, ...numbers) {
   let sum = 0;
-  for (const num of arguments) { // Before ES6 used: not recommended!
+  for (const num of numbers) {
     sum -= num;
   }
-  return sum;
+  resultHandler(sum);
 }
 
-console.log(subtractUp(1,2,3,4,5));
+subtractUp(showResult, 1,2,3,4,5);
 // because of Rest operator's feature,
 // const sumUp2 = (...numbers, a)  X
 // const sumUp2 = (a, ...numbers)  O
