@@ -81,3 +81,74 @@ console.log(ul3.nextElementSibling);
 //hard to read, also html file could change..
 const ul4 = document.body.firstElementChild.nextElementSibling;
 console.log(ul4);
+
+const section = document.querySelector('section');
+// section.style.backgroundColor = 'blue';
+// section.className = '';
+
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg invisible'){
+  //   section.className = 'red-bg visible';
+  // } else {
+  //   section.className = 'red-bg invisible';
+  // }
+  // section.classList.toggle('visible');
+  section.classList.toggle('invisible');
+})
+
+section.textContent = 'changed content';
+// change all nested node, also descendent
+section.innerHTML = '<h3>changed content again</h3>';
+// how to add?
+// it works but all stuffs are re-rendered
+section.innerHTML += '<h4>added content with existed stuff</h4>';
+
+// re-render so lost user input
+const div = document.querySelector('div');
+// div.innerHTML += '<p>and added</p>';
+
+// better, but cannot access this rendered content
+div.insertAdjacentHTML('beforeend', '<p>does not rerender others!</p>');
+
+const ul5 = document.querySelector('ul');
+const newLi = document.createElement('li');
+newLi.textContent = 'Item 5';
+ul5.appendChild(newLi);
+
+ul5.append('Some el', 'Some el2');
+
+// what is 'text node'
+// <p> paragraph </p>
+// ' paragraph '
+
+// attribute, property
+// attribute 属性
+// htmlドキュメントの静的定義され、文字列表現される
+// property
+// JSがDocument Object Modelを操作する際、要素自体が持つ情報・状態
+// 動的操作が可能（JSで触るからもちろんだが）、オブジェクトの一部となる
+
+// moved because it is object
+ul5.prepend(newLi);
+
+// clone, parameter get nested or not
+const clone = newLi.cloneNode(true);
+ul5.insertAdjacentElement('afterend', clone);
+
+// live node list vs non-live node list?
+const list1 = document.querySelector('ul');
+const listItems = list1.querySelectorAll('li');
+const listItems2 = list1.getElementsByTagName('li');
+const newLi2 = document.createElement('li');
+newLi2.textContent = 'live or not';
+list1.append(newLi2);
+// NodeList(5) DOM snapshot
+console.log(listItems);
+// HTMLCollection(6)
+console.log(listItems2);
+
+const select = document.querySelector('select');
+// excepe IE
+// select.remove();
+select.parentElement.removeChild(select);

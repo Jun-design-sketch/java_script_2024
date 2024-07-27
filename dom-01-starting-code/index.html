@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DOM Interaction</title>
+  <style>
+    .red-bg {
+      background-color: red;
+      color:wheat;
+    }
+    .visible {
+      display: block;
+    }
+    .invisible {
+      display: none;
+    }
+  </style>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -15,6 +27,11 @@
     <li class="list-item">Item 3</li>
     <li>Item 4</li>
   </ul>
-  <input type="text" value="default text">
+  <section class="red-bg">section</section>
+  <button>Toggle Visibility</button>
+  <select>test</select>
+  <div>
+    <input type="text" value="default text">
+  </div>
 </body>
 </html>
