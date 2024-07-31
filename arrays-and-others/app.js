@@ -55,3 +55,14 @@ console.log(filteredArray);
 // arrow function
 const filteredArray2 = threePrices.filter(p => p > 6);
 console.log(filteredArray2);
+
+const fifthPrices = [10.99, 5.99, 3.99, 6.59];
+
+// reduce
+const reduceSum = fifthPrices.reduce((prevValue, curValue, curIndex, prices) => {
+  return prevValue + curValue;
+}, 0); // initial value = 0
+console.log(reduceSum);
+
+// const sum = fifthPrices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+
