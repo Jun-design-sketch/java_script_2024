@@ -42,3 +42,11 @@ const copiedNotChange = persons.map(person => ({
 }));
 persons[0].age = 31;
 console.log(persons, copiedNotChange);
+
+// array destruction
+const nameData = ['Max', 'Schwarz', 'Mr', 30];
+// const firstName = nameData[0];
+// const lastname = nameData[1];
+// ...(restOperation) collect rest of all
+const[firstName, lastName, ...el] = nameData;
+console.log(firstName, lastName, el);
