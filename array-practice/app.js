@@ -50,3 +50,5 @@ const nameData = ['Max', 'Schwarz', 'Mr', 30];
 // ...(restOperation) collect rest of all
 const[firstName, lastName, ...el] = nameData;
 console.log(firstName, lastName, el);
+
+// Maps and Sets!
