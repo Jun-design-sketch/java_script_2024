@@ -41,3 +41,40 @@ delete person.age;
 // call property
 person.greet();
 console.log(person);
+
+const person2 = {
+  'first name': 'test',
+  age: 31,
+  hobbies: ['cooking', 'sleep'],
+  greet: function() {
+    console.log('Hello');
+  },
+  1.5: 'hello!'
+};
+
+console.log(person2['first name']);
+console.log(person2[1.5]);
+
+// when key is numbers: print it out with number's sort
+const numbers = {5: 'hi', 1: 'true'};
+console.log(numbers);
+
+const keyName = 'first name';
+console.log(person2[keyName]);
+// not work
+console.log(person.keyName);
+
+// what is 'dynamic'
+const userChosenKeyName = 'level';
+
+let person3 = {
+  'first name': 'Min',
+  age: 44,
+  hobbies: ['Tests','Programming'],
+  [userChosenKeyName]: 'what?',
+  greet: function() {
+    alert('Hi there!');
+  },
+  1.5:'hello'
+};
+console.log(person3[userChosenKeyName]);
