@@ -77,7 +77,15 @@ const addMovieHandler = () => {
   renderMovies();
 };
 
-const searchMovieHandler = () => {
+// arrow functions doesn't know "this", keep context.
+// const searchMovieHandler = () => {
+//   console.log(this); // window
+//   const filterTerm = document.getElementById('filter-title').value;
+//   renderMovies(filterTerm);
+// };
+
+const searchMovieHandler = function() {
+  console.log(this); // button
   const filterTerm = document.getElementById('filter-title').value;
   renderMovies(filterTerm);
 };
