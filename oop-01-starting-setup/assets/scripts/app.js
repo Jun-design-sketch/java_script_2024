@@ -1,25 +1,38 @@
+// class is bluePrint
+class Product {
+  // definition of object
+  title = "DEAFULT";
+  imageUrl;
+  description;
+  price;
+
+  // constructor
+  constructor(title, imageUrl, description, price) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
+  }
+
+  someName() {}
+
+  someName2() {}
+}
+
+console.log(new Product());
+
 const productList = {
-  products : [
-    {
-      title: "A Pillow",
-      imageUrl: "",
-      price: 19.99,
-      description: "A soft pillow!",
-    },
-    {
-      title: "A Carpet",
-      imageUrl: "",
-      price: 89.99,
-      description: "A carpet which you might like - or not.",
-    },
+  products: [
+    new Product("A Pillow", "", "A soft pillow!", 19.99),
+    new Product("A Carpet", "", "A carpet which you might like - or not.", 89.99)
   ],
   render() {
-    const renderHook = document.getElementById('app');
-    const prodList = document.createElement('ul');
-    prodList.className = 'product-list';
-    for (const prod of this.products){
-      const prodEl = document.createElement('li');
-      prodEl.className = 'product-item';
+    const renderHook = document.getElementById("app");
+    const prodList = document.createElement("ul");
+    prodList.className = "product-list";
+    for (const prod of this.products) {
+      const prodEl = document.createElement("li");
+      prodEl.className = "product-item";
       prodEl.innerHTML = `
         <div>
           <img src="${prod.imageUrl}" alt="${prod.title}">
@@ -34,7 +47,7 @@ const productList = {
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
-  }
+  },
 };
 
 productList.render();
