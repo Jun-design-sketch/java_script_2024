@@ -77,13 +77,23 @@ class ShoppingCart extends Component {
     this.cartItems = updatedItems;
   }
 
+  orderProducts() {
+    console.log('Ordering...');
+    console.log(this.items);
+  }
+
   render() {
-    const cartEl = this.createRootElement("section", "cart");
+    const cartEl = this.createRootElement('section', 'cart');
     cartEl.innerHTML = `
       <h2>Total: \$${0}</h2>
       <button>Order Now!</button>
     `;
-    this.totalOutput = cartEl.querySelector("h2");
+    const orderButton = cartEl.querySelector('button');
+    // 1. bind to keep 'this' in this area
+    // orderButton.addEventListener('click', this.orderProducts.bind(this));
+    // 2. anonymous arrow function: keep context
+    orderButton.addEventListener('click', () => this.orderProducts());
+    this.totalOutput = cartEl.querySelector('h2');
   }
 }
 
@@ -117,15 +127,17 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [];
+  // inside of class or object, return this or set private property
+  #products = [];
 
   constructor(renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
+    this.render();
     this.fetchProducts();
   }
 
   fetchProducts() {
-    this.products = [
+    this.#products = [
       new Product(
         "A Pillow",
         "",
@@ -143,7 +155,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    for(const prod of this.products) {
+    for(const prod of this.#products) {
       new ProductItem(prod, 'prod-list');
     }
   }
@@ -152,7 +164,7 @@ class ProductList extends Component {
     const prodList = this.createRootElement("ul", "product-list", [
       new ElementAttribute("id", "prod-list"),
     ]);
-    if(this.products && this.products.lenght > 0) {
+    if(this.#products && this.#products.lenght > 0) {
       this.renderProducts();
     }
   }
