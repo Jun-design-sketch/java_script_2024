@@ -73,3 +73,8 @@ const strawberry = new Candy('Strawberry'); // from constructor function
 // the function's prototype(Candy) === strawberry's prototype
 strawberry.introduce();
 
+// what is __proto__, prototype
+// prototype is attribute that used by function object(constructor function) or class
+// define (made by their's) object's attribute and method
+// __proto__ is internal attribute, referenced by particular object's prototype
+// recommended: Object.getPrototypeOf(), Object.setPrototypeOf()
