@@ -15,10 +15,10 @@
 // constructor function
 function Person() {
   this.age = 30;
-  this.name = 'Max';
-  this.greet = function() {
+  this.name = "Max";
+  this.greet = function () {
     console.log(
-    "Hi. I am " + this.name + " and I am " + this.age + " years old"
+      "Hi. I am " + this.name + " and I am " + this.age + " years old"
     );
   };
 }
@@ -46,7 +46,7 @@ console.log(p.__proto__);
 Person.prototype = {
   printAge() {
     console.log(this.age);
-  }
+  },
 };
 const person3 = new Person();
 // exist in definition of object(constructor function)
@@ -55,7 +55,6 @@ person3.greet();
 console.log(person3.__proto__);
 // printAge now exist in __proto__
 person3.printAge();
-
 
 ////////
 
@@ -66,10 +65,10 @@ const obj = {}; // obj has prototype that Object.prototype
 function Candy(taste) {
   this.taste = taste;
 }
-Candy.prototype.introduce = function() {
+Candy.prototype.introduce = function () {
   console.log(`jyajya-nn taste: ${this.taste}`);
-}
-const strawberry = new Candy('Strawberry'); // from constructor function
+};
+const strawberry = new Candy("Strawberry"); // from constructor function
 // the function's prototype(Candy) === strawberry's prototype
 strawberry.introduce();
 
@@ -78,3 +77,37 @@ strawberry.introduce();
 // define (made by their's) object's attribute and method
 // __proto__ is internal attribute, referenced by particular object's prototype
 // recommended: Object.getPrototypeOf(), Object.setPrototypeOf()
+
+const course = {
+  title: "JavaScript - The Complete Guide",
+  rating: 5,
+}; // new Object();
+// inofficial feature by browser
+console.log(course.__proto__);
+// official way
+console.log(Object.getPrototypeOf(course));
+
+Object.setPrototypeOf(course, {
+  ...Object.getPrototypeOf(course), // spread operator to keep original prototype
+  printRating: function () {
+    console.log(`${this.rating}/5`);
+  },
+});
+course.printRating();
+
+const student = Object.create({
+  printProgress: function () {
+    console.log(this.progress);
+  },
+});
+student.name = 'ojisan';
+
+Object.defineProperty(student, 'progress', {
+  configurable: true,
+  enumerable: true,
+  value: 0.8,
+  writable: false
+});
+
+console.log(student);
+console.log(student.progress);
