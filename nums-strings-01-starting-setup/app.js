@@ -52,6 +52,52 @@ function randomIntBetween(min, max) {
   return Math.floor(Math.random() * (max-min+1) + min);
 }
 console.log(randomIntBetween(1,10));
-////////////////////////
+////////////////////////// tagged template
 console.log('----------------');
+const str = 'something';
+console.log(`${str}`);
+console.log(`${str.startsWith('so')}`);
+function productDescription(strings, productName, productPrice) {
+  console.log(strings); // backtickで入力したものが配列として入っている
+  console.log(productName);
+  console.log(productPrice);
+  //ので、動的な文字列の結合に使える
+  let priceCategory = 'cheap';
+  if(productPrice > 20) {
+    priceCategory = 'fair';
+  }
+  // return `${strings[0]}${productName}${strings[1]}${priceCategory}${strings[2]}`;
+  // オブジェクトの返却もできる
+  return {name: productName, price: productPrice};
+}
+const prodName = 'JavaScript Course';
+const prodPrice = 29;
+// template literalを使うが..なんだか()がない
+const productOutput = productDescription`This product (${prodName}) is ${prodPrice}`;
+console.log(productOutput);
+// 中々慣れないregexp
+const userInput = 'test@test.com';
+console.log(userInput.includes('@'));
+// const regex = new RegExp('');
+const regex = /^\S+@\S+\.\S+$/;
+console.log(regex.test(userInput));
+console.log(regex.test('test@test'));
+// ^ start
+// \S+ 一つ以上の空白でない文字
+// @ そのまま@
+// \. dot
+// $ end
+// / <- regular expression literal
+const newRegex = /hello/; // normal characters
+console.log(newRegex.test('hello'));
+console.log(newRegex.test('HeLLo'));
+console.log(newRegex.test('hi there, hello'));
+const flexRegex = /(h|H)ello/;
+console.log(flexRegex.test('Hello'));
+console.log(flexRegex.test('hello'));
+const againRegex = /.ello/;
+console.log(againRegex.test('Aello'));
+console.log(againRegex.test('ello'));
+console.log(againRegex.exec('blahblah zello'));
+const emailRegex = /^\S+@\S+\./; // escape
 
