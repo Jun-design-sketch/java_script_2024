@@ -42,3 +42,29 @@ xhr.send();
 // じゃあここでlistOfPostsはどうやって回す？
 // まだ来ていないかもしれない。xhr.onload()内にしかがない
 // source31~35に送る
+
+const person = { // raw javascript obejct
+
+  name: 'Max',
+  age: 30,
+  hobbies: [
+      { id: 'h1', title: 'Sports' },
+      { id: 'h2', title: 'Cooking' }
+  ],
+  isInstructor: true
+};
+
+const jsonData = JSON.stringify(person); // JS data => JSON data String
+console.log(jsonData);
+console.log(typeof jsonData); // string
+
+// JS data => JSON data(stringify)はオブジェクト以外、数字・配列・真偽・文字列なんでも良い
+// JSらしい
+const jsonNumber = JSON.stringify(2); // "2"
+console.log(jsonNumber);
+const jsonText = JSON.stringify('Hi there! I use single quotes in raw JS'); // ""Hi there! ...""
+console.log(jsonText);
+const jsonArray = JSON.stringify([1, 2, 3]); // "[1,2,3]"
+console.log(jsonArray);
+const jsonBoolean = JSON.stringify(true);
+console.log(jsonBoolean);
