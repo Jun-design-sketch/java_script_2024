@@ -1,6 +1,7 @@
-import { Component } from './Component.js';
-
-export class Tooltip extends Component {
+// import { Component } from './Component.js';
+// {}で囲ってないからデフォルトエクスポートの受け取りだと知らせられる
+import Cmp from './Component.js';
+export class Tooltip extends Cmp {
   constructor(closeNotifierFunction, text, hostElementId) {
     super(hostElementId);
     this.closeNotifier = closeNotifierFunction;

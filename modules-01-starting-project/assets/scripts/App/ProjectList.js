@@ -1,5 +1,10 @@
 import { ProjectItem } from './ProjectItem.js';
-import { DOMHelper } from '../Utility/DOMHelper.js';
+// import { DOMHelper } from '../Utility/DOMHelper.js';
+import { moveElement } from '../Utility/DOMHelper.js';
+// もしくはまとめてバンドル化してしまうこともできる
+import * as DOMH from '../Utility/DOMHelper.js';
+// もしくは別称をつけることもできる。。
+import { ProjectItem as PrjItem } from './ProjectItem.js';
 export class ProjectList {
   projects = [];
 
@@ -57,7 +62,8 @@ export class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
-    DOMHelper.moveElement(project.id, `#${this.type}-projects ul`);
+    // DOMHelper.moveElement(project.id, `#${this.type}-projects ul`);
+    moveElement(project.id, `#${this.type}-projects ul`);
     project.update(this.switchProject.bind(this), this.type);
   }
 

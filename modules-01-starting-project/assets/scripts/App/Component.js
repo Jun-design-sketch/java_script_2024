@@ -1,6 +1,8 @@
+export function doSomething() {};
 // JavaScriptの内蔵機能
 // このクラスを他のファイルでも使用する宣言
-export class Component {
+// defaultも設定できる。。
+export default class Component {
   constructor(hostElementId, insertBefore = false) {
     if (hostElementId) {
       this.hostElement = document.getElementById(hostElementId);
