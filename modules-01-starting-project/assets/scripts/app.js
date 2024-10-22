@@ -1,5 +1,6 @@
 // コードがいっぱい入ってるけれどどう分ける？
 // ファイル毎に分け、クラス毎に割り当てる。=> モジュール化
+import { ProjectList } from "./App/ProjectList.js";
 
 class App {
   static init() {
