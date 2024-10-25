@@ -9,6 +9,7 @@ export default [
     languageOptions: { globals: globals.browser },
     // カスタムルール設定
     rules: {
+      /* 公式からいつでも https://eslint.org/docs/latest/rules/ */
       indent: ["error", 2],
       quotes: ["error", "single"],
       semi: ["error", "always"]

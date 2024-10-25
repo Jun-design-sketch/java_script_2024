@@ -13,10 +13,20 @@
 // CodeCompilationTool: write modernCode, get older code: Babel
 // CodeQualityChecker: check code quality, patterns: ESLint
 
+// Code QC
 // node.jsインストールからnpm init
 // npm install --save-dev eslint
 // で、npm installしてみるとインストールされているけれどどう使うか
 // F1 -> Create ESLint configuration
+// ESLintがスタートされれば再起動かけていつでも使える…！
+
+// Code Bundling
+// それからWebpackをインストールしていく
+// ファイルを気持ちよく分けて書いて、BundlingToolがまとめて少ないHTTPリクエストにしてくれる
+// NPMインストールをするが、webpackに対して依存性を持つようにする
+// npm install --save-dev webpack@4 --save-exact
+// npm install --save-dev webpack-cli@3.3.9 --save-exact
+// https://webpack.js.org/
 import { ProjectList } from "./App/ProjectList.js";
 
 globalThis.DEFAULT_VALUE = 'MAX';
