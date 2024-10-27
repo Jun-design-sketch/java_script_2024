@@ -1,5 +1,5 @@
-import { ProjectItem as PrjItem } from './ProjectItem.js';
-import * as DOMH from '../Utility/DOMHelper.js';
+import { ProjectItem as PrjItem } from './ProjectItem';
+import * as DOMH from '../Utility/DOMHelper';
 
 // const ProjectItem = 'abc';
 // console.log(DEFAULT_VALUE);

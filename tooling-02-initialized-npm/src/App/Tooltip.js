@@ -1,4 +1,4 @@
-import Cmp, { doSomething } from './Component.js';
+import Cmp, { doSomething } from './Component';
 
 console.log('Tooltip running');
 
@@ -8,12 +8,12 @@ export class Tooltip extends Cmp {
     this.closeNotifier = closeNotifierFunction;
     this.text = text;
     this.create();
-  }
 
-  closeTooltip = () => {
-    this.detach();
-    this.closeNotifier();
-  };
+    this.closeTooltip = () => {
+      this.detach();
+      this.closeNotifier();
+    };
+  }
 
   create() {
     const tooltipElement = document.createElement('div');

@@ -27,7 +27,7 @@
 // npm install --save-dev webpack@4 --save-exact
 // npm install --save-dev webpack-cli@3.3.9 --save-exact
 // https://webpack.js.org/
-import { ProjectList } from "./App/ProjectList.js";
+import { ProjectList } from "./App/ProjectList";
 
 globalThis.DEFAULT_VALUE = 'MAX';
 
