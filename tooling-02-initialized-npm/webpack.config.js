@@ -17,5 +17,9 @@ module.exports = {
     filename: 'app.js',
     path: path.resolve(__dirname, 'assets', 'scripts'),
     publicPath: 'assets/scripts/'
-  }
+  },
+  // devServer: {
+  //   // root html file location
+  //   contentBase: './'
+  // }
 };

@@ -27,6 +27,16 @@
 // npm install --save-dev webpack@4 --save-exact
 // npm install --save-dev webpack-cli@3.3.9 --save-exact
 // https://webpack.js.org/
+
+// DevServer
+// 自動でリロードしたい
+// npm install --save-dev webpack-dev-server..というがdependencyErrorになる。
+// 新バージョンが沢山出ると大体こうなるので、旧バージョンを指定してみる
+// npm install --save-dev webpack-dev-server@3.8.1 --save-exact
+// * --save-dev: 開発依存性としてpackage.jsonに追加する
+// * --save-exact: 正確なバージョンをpackage.jsonに記録し、アップデートしてもバージョンを固定する
+// 必要であればwebpack.config.jsからルートディレクトリを指定
+// package.jsonからコマンド指定
 import { ProjectList } from "./App/ProjectList";
 
 globalThis.DEFAULT_VALUE = 'MAX';
