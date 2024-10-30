@@ -37,6 +37,11 @@
 // * --save-exact: 正確なバージョンをpackage.jsonに記録し、アップデートしてもバージョンを固定する
 // 必要であればwebpack.config.jsからルートディレクトリを指定
 // package.jsonからコマンド指定
+// npm run build:devで実行できるようになった
+
+// webpackは読みづらいコードを作ってくれてしまう
+// デバッグはいかにするのか: webpack sourceMap: devtool
+// https://webpack.js.org/configuration/devtool
 import { ProjectList } from "./App/ProjectList";
 
 globalThis.DEFAULT_VALUE = 'MAX';
