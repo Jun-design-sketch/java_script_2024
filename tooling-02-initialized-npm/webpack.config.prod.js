@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 const path = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
-
 // npm run build
 // NodeJSに右側のオブジェクトを外にはみ出せる
 // eslint-disable-next-line no-undef
@@ -16,11 +15,12 @@ module.exports = {
   mode: 'development',
   entry: './src/app.js',
   output: {
-    filename: 'app.js',
+    // ビルドする度に新しいファイル名にする
+    filename: '[contenthash].js',
     path: path.resolve(__dirname, 'assets', 'scripts'),
     publicPath: 'assets/scripts/'
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-source-map',
   // devServer: {
   //   // root html file location
   //   contentBase: './'

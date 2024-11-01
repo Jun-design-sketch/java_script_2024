@@ -38,6 +38,11 @@
 // 必要であればwebpack.config.jsからルートディレクトリを指定
 // package.jsonからコマンド指定
 // npm run build:devで実行できるようになった
+// 同じく、production用のビルド設定ファイルを作り
+// npm run build:prod
+// 古いファイルがあり続けないように
+// npm install --save-dev clean-webpack-plugin
+// webpack.config.jsを変更する
 
 // webpackは読みづらいコードを作ってくれてしまう
 // デバッグはいかにするのか: webpack sourceMap: devtool
