@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Project Board</title>
     <link rel="stylesheet" href="assets/styles/app.css" />
-    <script src="assets/scripts/app.js" defer></script>
+    <!-- レガシーブラウザはmoduleを理解できないため、実行しない -->
+    <script src="assets/scripts/app.js" defer type="module"></script>
+    <!-- モダンブラウザは"nomodule"を実行しない。レガシーブラウザは下を実行する -->
+    <!-- fallbackコードで使える。ただ、webpackとbabel、core-js（polyfill）を使うのであればどうせ１つにするから。。 -->
+    <script nomodule></script>
   </head>
   <body>
    <button>COPY</button>
    <p>Some text you could copy...</p>
+   <noscript>
+    <!-- JSを非活性している人へ -->
+   </noscript>
   </body>
 </html>
