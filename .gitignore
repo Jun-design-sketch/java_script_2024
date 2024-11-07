@@ -1,3 +1,5 @@
 .DS_Store
 tooling-02-initialized-npm/node_modules/
 support-01-starting-setup/node_modules/
+practice-places-01-starting-setup/node_modules/
+practice-places-01-starting-setup/package-lock.json
