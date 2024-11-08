@@ -1,3 +1,4 @@
+import { Modal } from './UI/Modal';
 class PlaceFinder {
   constructor() {
     const addressForm = document.querySelector("form");
@@ -13,8 +14,13 @@ class PlaceFinder {
       alert("位置情報が使えないよ。。");
       return;
     }
+
+    const modal = new Modal('loading-modal-content', 'Loading location...');
+    modal.show();
+
     navigator.geolocation.getCurrentPosition(
       (successResult) => {
+        modal.hide();
         console.log(successResult);
         const coordinates = {
           lat: successResult.coords.latitude,
@@ -23,6 +29,7 @@ class PlaceFinder {
         console.log(coordinates);
       },
       (error) => {
+        modal.hide();
         alert('位置情報が得られませんでした。手動入力してください。。');
       }
     );
